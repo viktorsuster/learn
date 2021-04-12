@@ -72,4 +72,5 @@ const performance = [
     }
     return performance;
   }
+  
   updatePortfolioDailyValue();
