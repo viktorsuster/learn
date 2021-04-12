@@ -61,6 +61,7 @@ const performance = [
       return 0;
     }
   }
+  
   function updatePortfolioDailyValue() {
     let currentDay = 0;
     for (let entry of performance) {
@@ -73,3 +74,4 @@ const performance = [
     return performance;
   }
   updatePortfolioDailyValue();
+  
