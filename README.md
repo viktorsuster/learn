@@ -1,13 +1,12 @@
 # learn
-
-/**
+```/**
  * Take home exercises
  * ===================
  *
  * These are some exercises to practice JS foundations and a little bit of math.
  */
 
-// Initial setup (donâ€™t change this)
+// Initial setup (don’t change this)
 // Utility function you can use to truncate numbers to 2 decimals (warning: only use for display, never for calculation)
 const trunc2 = (num) => Math.trunc(num * 100) / 100;
 
@@ -73,7 +72,7 @@ const performance = [
  * Exercise 1: Calculate daily portfolio value
  * ===========================================
  *
- * On `2021/02/12`, you decided to invest your `$640` into three stocks: Apple `AAPL`, Tesla `TSLA`, and GameStop `GME`, with allocations of 20% AAPL, 35% TSLA and 45% GME, meaning you split your money in such a ratio between the stocks. In `STOCK_DATA` youâ€™ll find the price for each ticker on each day it was traded on the stock exchange. Calculate how much money youâ€™re left with on each day between `2021/02/12` and `2021/02/23`, depending on ticker the allocation and its daily value. Think about the `2021/02/12` values as your starting price, meaning on the first day you should still end up with `640`. But since thereâ€™s no trading on holidays and weekends, the data has some missing dates. On those days your value stays the same.
+ * On `2021/02/12`, you decided to invest your `$640` into three stocks: Apple `AAPL`, Tesla `TSLA`, and GameStop `GME`, with allocations of 20% AAPL, 35% TSLA and 45% GME, meaning you split your money in such a ratio between the stocks. In `STOCK_DATA` you’ll find the price for each ticker on each day it was traded on the stock exchange. Calculate how much money you’re left with on each day between `2021/02/12` and `2021/02/23`, depending on ticker the allocation and its daily value. Think about the `2021/02/12` values as your starting price, meaning on the first day you should still end up with `640`. But since there’s no trading on holidays and weekends, the data has some missing dates. On those days your value stays the same.
  *
  * Instructions
  * ============
@@ -110,12 +109,12 @@ export const dailyPortfolioValue = updatePortfolioDailyValue();
  * Exercise 2: Calculate and print the return in investment
  * ========================================================
  *
- * Between the first and the last day of trading, youâ€™ve either made or lost some money. Calculate what is your return on the last day since you started investing â€“ in percent and in money.
+ * Between the first and the last day of trading, you’ve either made or lost some money. Calculate what is your return on the last day since you started investing – in percent and in money.
  *
  * Instructions
  * ============
  *
- * Define an `printInvestmentReturn` function that returns a string saying whatâ€™s the current return on your investment in percent, and whatâ€™s your profit or loss.
+ * Define an `printInvestmentReturn` function that returns a string saying what’s the current return on your investment in percent, and what’s your profit or loss.
  * The string should be in these formats:
  *   Positive return: `Current return on investment is 23.45%, a profit of $67.89.`.
  *   Negative return: `Current return on investment is -12.34%, a loss of $56.78.`.
@@ -132,7 +131,7 @@ export const investmentReturn = printInvestmentReturn();
  * Exercise 3: Calculate and print the day-to-day largest change
  * =============================================================
  *
- * Unless itâ€™s a holiday or a weekend, there should be a daily change of value on your investment. Find the day with the largest change from the previous day and calculate the difference between them.
+ * Unless it’s a holiday or a weekend, there should be a daily change of value on your investment. Find the day with the largest change from the previous day and calculate the difference between them.
  *
  * Instructions
  * ============
@@ -150,8 +149,8 @@ function printLargestChange() {
 
 export const largestChange = printInvestmentReturn();
 
-/************************************************************************
-Homework test
+// TEST
+
 import { dailyPortfolioValue, investmentReturn, largestChange } from '.';
 
 test('Performance array values are correct', () => {
@@ -178,4 +177,29 @@ test('Investment return string is correct', () => {
 test('Largest change is string correct', () => {
   expect(largestChange).toBe('Largest change was on day 7, with a loss of $32.87.');
 });
-*/
+
+// My solution
+
+  function getDailyValueByCompany(company, date) {
+    console.log(company, date);
+    let currentCompanyStocks = STOCK_DATA[company];
+    for (let entry of currentCompanyStocks) {
+      // check if the dates match, then perform calculation and return it
+      return 0;
+    }
+  }
+  function updatePortfolioDailyValue() {
+    let currentDay = 0;
+    for (let entry of performance) {
+      entry.day = ++currentDay;
+      let AAPL_DAILY_VALUE = getDailyValueByCompany('AAPL', entry.date);
+      let TSLA_DAILY_VALUE = getDailyValueByCompany('TSLA', entry.date);
+      let GME_DAILY_VALUE = getDailyValueByCompany('GME', entry.date);
+      entry.value = AAPL_DAILY_VALUE + AAPL_DAILY_VALUE + GME_DAILY_VALUE;
+    }
+    return performance;
+  }
+  
+  updatePortfolioDailyValue();
+
+```
